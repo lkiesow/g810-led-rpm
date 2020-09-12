@@ -50,6 +50,10 @@ install -m 0644 systemd/%{name}-reboot.service %{buildroot}%{_unitdir}
 install -m 0755 -d %{buildroot}%{_docdir}/%{name}/sample_profiles
 install -m 0644 sample_profiles/* %{buildroot}%{_docdir}/%{name}/sample_profiles
 
+install -m 0755 -d %{buildroot}%{_docdir}/%{name}/examples
+install -m 0644 sample_effects/bash/k2000 %{buildroot}%{_docdir}/%{name}/examples/k2000.bash
+install -m 0644 sample_effects/python/k2000 %{buildroot}%{_docdir}/%{name}/examples/k2000.py
+
 install -m 0755 -d %{buildroot}%{_sysconfdir}/%{name}
 install -m 0644 sample_profiles/group_keys %{buildroot}%{_sysconfdir}/%{name}/profile
 install -m 0644 sample_profiles/all_blue   %{buildroot}%{_sysconfdir}/%{name}/reboot
@@ -75,6 +79,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 %doc README.md LICENSE INSTALL.md PROFILES.md CONTRIBUTING.md CONTRIBUTORS.md
 %doc %{_docdir}/%{name}/sample_profiles
+%doc %{_docdir}/%{name}/examples
 %{_bindir}/g810-led
 %{_bindir}/g213-led
 %{_bindir}/g410-led
